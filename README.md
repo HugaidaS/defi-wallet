@@ -1,1 +1,1 @@
-Do not forget to fork mainnet for testing
+Do not forget to fork mainnet
