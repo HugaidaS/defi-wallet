@@ -19,7 +19,10 @@ function App() {
   useEffect(() => {
     const init = async () => {
       const { signer, wallet, dai } = await getBlockchain();
-      const balanceEth = await wallet.callStatic.getUnderlyingEthBalance();
+      const balanceEth = ethers.utils.formatUnits(
+        await wallet.callStatic.getUnderlyingEthBalance(),
+        18
+      );
       let balance = await dai.balanceOf(wallet.address);
       let balanceDai = ethers.utils.formatUnits(balance, 18) * Math.pow(10, 18);
       setSigner(signer);
@@ -40,6 +43,7 @@ function App() {
     });
     await tx.wait();
     setDepositAmountEth("");
+    window.location.reload();
   };
 
   const depositDai = async (e) => {
@@ -50,6 +54,7 @@ function App() {
     const tx2 = await wallet.deposit(addresses.cDai, amount);
     await tx2.wait();
     setDepositAmountDai("");
+    window.location.reload();
   };
 
   const withdrawEth = async (e) => {
@@ -68,6 +73,7 @@ function App() {
     await tx.wait();
     setWithdrawAmountDai("");
     setWithdrawAddressDai("");
+    window.location.reload();
   };
 
   if (
