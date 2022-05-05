@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import getBlockchain from "./ethereum.js";
-import addresses from "./addresses.js";
 import { ethers } from "ethers";
+const addresses = require("./addresses");
 
 function App() {
   const [signer, setSigner] = useState(undefined);

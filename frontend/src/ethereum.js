@@ -1,6 +1,6 @@
 import { ethers, Contract } from "ethers";
 import Wallet from "./contracts/Wallet.json";
-import addresses from "./addresses.js";
+const addresses = require("./addresses");
 
 const { ethereum } = window;
 
