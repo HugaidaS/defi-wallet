@@ -16,7 +16,7 @@ contract("Wallet", () => {
     assert.equal(balance, 0);
   });
 
-  it("Walllet balance should has 10 ETH after deposit", async () => {
+  it("Walllet balance should has 1 ETH after deposit", async () => {
     let one_eth = web3.utils.toWei("1", "ether");
 
     const tx = await signer
@@ -32,7 +32,7 @@ contract("Wallet", () => {
         const balance_ether = Math.round(
           ethers.utils.formatEther(balance.toString())
         );
-        assert.equal(10, balance_ether);
+        assert.equal(1, balance_ether);
       });
       return;
     } catch (error) {
